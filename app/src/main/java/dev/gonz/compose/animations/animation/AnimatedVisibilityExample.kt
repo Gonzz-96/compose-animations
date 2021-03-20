@@ -7,6 +7,8 @@ import androidx.compose.material.Button
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -24,23 +26,23 @@ import dev.gonz.compose.animations.ui.theme.ComposeAnimationsTheme
 fun AnimatedVisibilityExample(
   modifier: Modifier = Modifier
 ) {
-  val visible = remember { mutableStateOf(true) }
+  var visible by remember { mutableStateOf(true) }
 
   Surface(modifier = modifier) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
       Text(text = "Animated Visibility", fontSize = 40.sp)
       Button(
-        onClick = { visible.value = !visible.value },
+        onClick = { visible = !visible },
         modifier = Modifier
           .padding(vertical = 16.dp)
           .defaultMinSize(minWidth = 30.dp)
       ) {
-        Text(if (visible.value) "Hide" else "Show")
+        Text(if (visible) "Hide" else "Show")
       }
       // the 'enter' parameter type: EnterTransition
       // the 'exit' parameter type: ExitTransition
       AnimatedVisibility(
-        visible = visible.value,
+        visible = visible,
         enter = expandIn(),
         exit = shrinkOut()
       ) {
