@@ -1,7 +1,6 @@
 package dev.gonz.compose.animations.animation
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -13,7 +12,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -39,7 +37,13 @@ fun AnimatedVisibilityExample(
       ) {
         Text(if (visible.value) "Hide" else "Show")
       }
-      AnimatedVisibility(visible = visible.value) {
+      // the 'enter' parameter type: EnterTransition
+      // the 'exit' parameter type: ExitTransition
+      AnimatedVisibility(
+        visible = visible.value,
+        enter = expandIn(),
+        exit = shrinkOut()
+      ) {
         Square(canvasSize = 300.dp)
       }
     }
