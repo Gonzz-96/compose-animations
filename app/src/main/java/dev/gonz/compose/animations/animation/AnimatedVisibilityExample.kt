@@ -24,53 +24,53 @@ import dev.gonz.compose.animations.ui.theme.ComposeAnimationsTheme
 @ExperimentalAnimationApi
 @Composable
 fun AnimatedVisibilityExample(
-  modifier: Modifier = Modifier
+    modifier: Modifier = Modifier
 ) {
-  var visible by remember { mutableStateOf(true) }
+    var visible by remember { mutableStateOf(true) }
 
-  Surface(modifier = modifier) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-      Text(text = "Animated Visibility", fontSize = 40.sp)
-      Button(
-        onClick = { visible = !visible },
-        modifier = Modifier
-          .padding(vertical = 16.dp)
-          .defaultMinSize(minWidth = 30.dp)
-      ) {
-        Text(if (visible) "Hide" else "Show")
-      }
-      // the 'enter' parameter type: EnterTransition
-      // the 'exit' parameter type: ExitTransition
-      AnimatedVisibility(
-        visible = visible,
-        enter = expandIn(),
-        exit = shrinkOut()
-      ) {
-        Square(canvasSize = 300.dp)
-      }
+    Surface(modifier = modifier) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(text = "Animated Visibility", fontSize = 32.sp)
+            Button(
+                onClick = { visible = !visible },
+                modifier = Modifier
+                    .padding(vertical = 16.dp)
+                    .defaultMinSize(minWidth = 30.dp)
+            ) {
+                Text(if (visible) "Hide" else "Show")
+            }
+            // the 'enter' parameter type: EnterTransition
+            // the 'exit' parameter type: ExitTransition
+            AnimatedVisibility(
+                visible = visible,
+                enter = expandIn(),
+                exit = shrinkOut()
+            ) {
+                Square(canvasSize = 200.dp)
+            }
+        }
     }
-  }
 }
 
 @ExperimentalAnimationApi
 @Composable
 @Preview(showBackground = true)
 fun ComposablePreview() {
-  ComposeAnimationsTheme {
-    AnimatedVisibilityExample()
-  }
+    ComposeAnimationsTheme {
+        AnimatedVisibilityExample()
+    }
 }
 
 @Composable
 fun Square(
-  canvasSize: Dp = 10.dp,
-  color: Color = Color.Blue.copy(alpha = 0.8F)
+    canvasSize: Dp = 10.dp,
+    color: Color = Color.Blue.copy(alpha = 0.8F)
 ) {
-  Canvas(modifier = Modifier.size(canvasSize)) {
-    drawRect(
-      color = color,
-      topLeft = Offset(0F, 0F),
-      size = size
-    )
-  }
+    Canvas(modifier = Modifier.size(canvasSize)) {
+        drawRect(
+            color = color,
+            topLeft = Offset(0F, 0F),
+            size = size
+        )
+    }
 }
