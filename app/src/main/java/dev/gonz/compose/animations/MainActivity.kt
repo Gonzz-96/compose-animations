@@ -65,6 +65,14 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         item { Divider() }
+                        item {
+                            PackagedTransition(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 20.dp)
+                            )
+                        }
+                        item { Divider() }
                     }
                 }
             }
