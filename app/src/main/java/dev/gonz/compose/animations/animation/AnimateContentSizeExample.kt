@@ -19,6 +19,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.gonz.compose.animations.ui.theme.ComposeAnimationsTheme
 
+// The `animateContentSize` is a state-driven animation.
+// The animation will depend on the state of the composable.
 @Composable
 fun AnimateContentSizeExample(
     modifier: Modifier = Modifier
