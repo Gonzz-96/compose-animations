@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import dev.gonz.compose.animations.animation.AnimateContentSizeExample
+import dev.gonz.compose.animations.animation.AnimatedFooAsStateExample
 import dev.gonz.compose.animations.animation.AnimatedVisibilityExample
 import dev.gonz.compose.animations.animation.CrossfadeExample
 import dev.gonz.compose.animations.ui.theme.ComposeAnimationsTheme
@@ -45,6 +46,14 @@ class MainActivity : ComponentActivity() {
                         item { Divider() }
                         item {
                             CrossfadeExample(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 20.dp)
+                            )
+                        }
+                        item { Divider() }
+                        item {
+                            AnimatedFooAsStateExample(
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(vertical = 20.dp)
