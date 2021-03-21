@@ -55,7 +55,7 @@ fun UpdateTransitionExample(
                     boxPosition = getNextPosition(boxPosition)
                 }
             ) {
-                Text("Rotate now!")
+                Text("Move now!")
             }
             Box(modifier = Modifier
                 .size(150.dp)
