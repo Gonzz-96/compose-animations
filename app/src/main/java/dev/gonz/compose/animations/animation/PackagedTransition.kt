@@ -35,7 +35,7 @@ fun PackagedTransition(
 
     Surface(modifier = modifier) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text("Animate!", fontSize = 32.sp)
+            Text("Packaged Transition", fontSize = 32.sp)
             Button(
                 modifier = Modifier.padding(top = 20.dp, bottom = 30.dp),
                 onClick = {
@@ -45,7 +45,7 @@ fun PackagedTransition(
                         BoxState.Small
                 }
             ) {
-                Text("Move now!")
+                Text("Animate!")
             }
             Box(modifier = Modifier
                 .offset(transitionData.offset.x.dp, 0.dp)

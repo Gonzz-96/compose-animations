@@ -73,6 +73,15 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         item { Divider() }
+                        item {
+                            InfiniteTransitionExample(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 20.dp)
+                            )
+                        }
+                        item { Divider() }
+
                     }
                 }
             }
