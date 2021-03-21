@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material.Button
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
@@ -32,13 +33,18 @@ fun AnimateContentSizeExample(
             Text("Animate Content Size",
                 fontSize = 32.sp,
                 modifier = Modifier
-                    .clickable {
-                        size = if (size.height == 100F)
-                            Size(200F, 200F)
-                        else
-                            Size(100F, 100F)
-                    }
                     .padding(vertical = 16.dp))
+            Button(
+                modifier = Modifier.padding(vertical = 20.dp),
+                onClick = {
+                    size = if (size.height == 100F)
+                        Size(200F, 200F)
+                    else
+                        Size(100F, 100F)
+                }
+            ) {
+                Text("Change size")
+            }
             Box(
                 modifier = Modifier
                     .animateContentSize()
