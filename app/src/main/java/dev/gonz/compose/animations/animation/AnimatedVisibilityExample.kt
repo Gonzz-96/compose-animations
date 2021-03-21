@@ -2,6 +2,7 @@ package dev.gonz.compose.animations.animation
 
 import androidx.compose.animation.*
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Surface
@@ -27,7 +28,6 @@ fun AnimatedVisibilityExample(
     modifier: Modifier = Modifier
 ) {
     var visible by remember { mutableStateOf(true) }
-
     Surface(modifier = modifier) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Text(text = "Animated Visibility", fontSize = 32.sp)
@@ -41,12 +41,11 @@ fun AnimatedVisibilityExample(
             }
             // the 'enter' parameter type: EnterTransition
             // the 'exit' parameter type: ExitTransition
-            AnimatedVisibility(
-                visible = visible,
-                enter = expandIn(),
-                exit = shrinkOut()
-            ) {
-                Square(canvasSize = 200.dp)
+            AnimatedVisibility(visible = visible) {
+                Box(
+                    modifier = Modifier
+                        .size(200.dp)
+                        .background(Color.Blue))
             }
         }
     }
