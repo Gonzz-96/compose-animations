@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import dev.gonz.compose.animations.ui.theme.ComposeAnimationsTheme
 
-enum class Text(val text: String) {
+private enum class Text(val text: String) {
     TextA("Text A"),
     TextB("Text B"),
 }
