@@ -1,6 +1,5 @@
 package dev.gonz.compose.animations.animation
 
-import android.util.Log
 import androidx.compose.animation.core.animateOffset
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.core.updateTransition
@@ -33,7 +32,7 @@ fun UpdateTransitionExample(
     var boxPosition by remember { mutableStateOf(BoxPosition.TopLeft) }
     val transition = updateTransition(targetState = boxPosition)
 
-    val boxOffset = transition.animateOffset(
+    val boxOffset by transition.animateOffset(
         transitionSpec = {
             tween(durationMillis = 1_000)
         }
@@ -62,7 +61,7 @@ fun UpdateTransitionExample(
                 .background(Color.Black)
             ) {
                 Box(modifier = Modifier
-                    .offset(boxOffset.value.x.dp, boxOffset.value.y.dp)
+                    .offset(boxOffset.x.dp, boxOffset.y.dp)
                     .size(30.dp)
                     .background(Color.Yellow))
             }
